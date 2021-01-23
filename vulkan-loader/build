@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+patch -p1 < no-wayland.patch
+
+cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr .
+make install
