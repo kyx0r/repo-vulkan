@@ -1,6 +1,10 @@
 #!/bin/sh -e
 
-patch -p1 < no-wayland.patch
+export DESTDIR="$1"
 
-cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr .
-make install
+cmake -B build \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DBUILD_WSI_WAYLAND_SUPPORT=OFF
+
+cmake --build build
+cmake --install build
