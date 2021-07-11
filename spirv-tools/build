@@ -1,0 +1,13 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+git clone https://github.com/google/effcee.git external/effcee
+git clone https://github.com/google/re2.git external/re2
+
+cmake -B build \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DSPIRV-Headers_SOURCE_DIR=/usr \
+
+cmake --build build
+cmake --install build
