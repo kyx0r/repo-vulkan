@@ -12,7 +12,7 @@ sed -i -e "s|\$<TARGET_FILE:spirv-dis>|spirv-dis|" \
 # Disable git versioning
 sed -i -e '/build-version/d' glslc/CMakeLists.txt
 
-echo "\"git\"" > glslc/src/build-version.inc
+echo "\"2025.1\"" > glslc/src/build-version.inc
 
 cmake -B build -G Ninja \
 	-DCMAKE_INSTALL_PREFIX=/usr \
